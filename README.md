@@ -60,7 +60,7 @@ To install and run this application locally, follow these steps:
 
 2. **Navigate to the project directory:**
    ```bash
-   cd ZenithTimes-React
+   cd TextApp-React
    ```
 3. **Install dependencies using npm:**
    ```bash
