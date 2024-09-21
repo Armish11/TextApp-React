@@ -45,9 +45,33 @@ Automatically remove unnecessary spaces from your text with a single click, ensu
 
 Toggle between dark and light themes for a comfortable reading and editing experience based on your preference. The selected theme is saved locally and applied on your next visit.
 
-### Responsive Design
+### User Interface Overview
+1. **Main Layout**
+Header: Contains the application title TextUtils prominently displayed, along with a navigation bar featuring links to different sections of the app (like usage instructions and contact info).
+2. **Text Input Area**
+Text Box: A large, editable text area where users can enter or paste their text. This area should be spacious for easy visibility and editing.
+3. **Feature Buttons**
+Below the text box, there are several buttons corresponding to the key features:
+**Count Words & Characters**: A button that, when clicked, displays the count of words and characters in a prominent area.
+**Convert Text**: Options (buttons or a dropdown) allowing users to choose between converting text to uppercase, lowercase, or capitalizing each word.
+**Replace Words**: A button that opens a small modal or dropdown for users to input the word they want to find and the word to replace it with.
+**Remove Extra Spaces**: A simple button that, when clicked, cleans up the text in the text box.
+4. **Theme Toggle**
+**Dark/Light Mode Toggle**: A switch (often a toggle button) located in the navbar that allows users to switch between dark and light themes seamlessly. The current theme is visually indicated.
+5. **Output Display**
+Word/Character Count Display: A small area beneath the buttons to show the current word and character count dynamically as the user types.
+6. **Responsive Design**
+The layout adapts to different screen sizes:
+Desktop: Wider text area and button layout.
+Tablet and Mobile: Stacked layout for buttons and a more compact text area to maintain usability on smaller screens.
+Additional Considerations
+Color Scheme: Ensure that the color scheme is visually appealing and provides good contrast, especially between the dark and light modes.
+Accessibility: Use labels and ARIA roles to make the application accessible to all users, including those using screen readers.
+User Feedback: Consider adding subtle animations or alerts when an action is performed, like successfully removing spaces or changing modes.
 
-The application is fully responsive, ensuring a smooth experience on desktops, tablets, and mobile devices.
+
+![textutils-homepage](./public/homepage-1.png)
+![textutils-homepage](./public/homepage-2.png)
 
 ## Installation
 
