@@ -20,13 +20,20 @@ settext(event.target.value);
         settext(newtext);
         props.showAlert("Converted to lowercase","success")
     }
-    const handlereplace=()=>{
-        let replace=prompt('What word you want to replace?');
-        let replacewith=prompt('Enter the word you want in that place.');
-        let newtext=text.replaceAll(replace,replacewith);
+    const handlereplace = () => {
+        let replace = prompt('What word do you want to replace?');
+        
+        // Check if the word to replace exists in the text
+        if (!text.includes(replace)) {
+            props.showAlert(`No matching word found for "${replace}".`, "error");
+            return; // Exit the function if no match is found
+        }
+        let replacewith = prompt('Enter the word you want in that place.');
+        let newtext = text.replaceAll(replace, replacewith);
         settext(newtext);
-        props.showAlert("Text has been replaced","success")
+        props.showAlert("Text has been replaced", "success");
     }
+    
     const handlecleartext=()=>{
         let newtext=""
         settext(newtext);
@@ -65,9 +72,12 @@ style={{backgroundColor:props.mode==='dark'?'#6e6ba7':'white',color:props.mode==
     </div>
     <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
     <h1>Your text summary</h1>
-        <p className='my-2' >{text===""?0:text.trim().split(/[ ]+/g).length} words and {text.trim().replace(/[ ]+ /g, '').length} characters.</p>
-        <p>{0.008 * (text===""?0:text.trim().split(/[ ]+/g).length) } Minutes to read</p>
-        <p>{text===""?0:text.trim().split('. ').length} number of sentences</p>
+        <p className='my-2' > {text === "" ? 0 : text.trim().split(/[.\s,]+/).filter(word => /^[a-zA-Z0-9]+$/.test(word)).length}
+
+
+   word and {text.trim().replace(/\s+/g, '').length} characters.</p>
+        <p>{0.008 * (text.trim().length===0?0:text.trim().split(/\s+/g).length) } Minutes to read</p>
+        <p>{text === "" ? 0 : text.trim().split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length} number of sentences</p>
     </div>
     <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
         <h2>Preview</h2>
