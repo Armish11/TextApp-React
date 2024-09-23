@@ -72,12 +72,9 @@ style={{backgroundColor:props.mode==='dark'?'#6e6ba7':'white',color:props.mode==
     </div>
     <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
     <h1>Your text summary</h1>
-        <p className='my-2' > {text === "" ? 0 : text.trim().split(/[.\s,]+/).filter(word => /^[a-zA-Z0-9]+$/.test(word)).length}
-
-
-   word and {text.trim().replace(/\s+/g, '').length} characters.</p>
+        <p className='my-2' > {text === "" ? 0 : text.trim().split(/\s+|['.,!?]+/).filter(word => word.trim().length > 0).length} word and {text.trim().replace(/\s+/g, '').length} characters.</p>
         <p>{0.008 * (text.trim().length===0?0:text.trim().split(/\s+/g).length) } Minutes to read</p>
-        <p>{text === "" ? 0 : text.trim().split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length} number of sentences</p>
+        <p>{text.trim().length === 0? 0 : text.trim().split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length} number of sentences</p>
     </div>
     <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
         <h2>Preview</h2>
